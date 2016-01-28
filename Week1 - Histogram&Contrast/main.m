@@ -19,7 +19,9 @@ end
 disp('Done.')
 imwrite(neg,'negative.jpg')
 disp('Computing histogram of the grayscale image')
+tic
 computeHist(bw)
+tot_time = toc
 disp('Done.')
 
 
