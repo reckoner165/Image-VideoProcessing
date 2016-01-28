@@ -1,8 +1,10 @@
 %AUTHOR: SUMANTH SRINIVASAN
 
+
+
 %imagePath = input('Enter the image filename along with path');
 
-a = imread('sample.jpg');
+a = uint8(imread('sample.jpg'));
 disp('Creating grayscale image...');
 bw = rgb2gray(a);
 imwrite(bw,'grayscale.jpg')
@@ -19,9 +21,11 @@ end
 imwrite(neg,'negative.jpg')
 disp('Computing histogram of the grayscale image')
 tic
-computeHist(bw)
+% computeHist(bw);
 tot_time = toc
 disp('Done.')
+
+histEq(bw);
 
 
 
