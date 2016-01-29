@@ -1,13 +1,14 @@
+%main.m 
+%Main script that imports the image and calls functions to calculate
+%histogram and perform histogram equalization
+
 %AUTHOR: SUMANTH SRINIVASAN
 
 
-
-%imagePath = input('Enter the image filename along with path');
-
-a = uint8(imread('sample.jpg'));
+a = uint8(imread('lena_low_contrast.jpg'));
 disp('Creating grayscale image...');
 bw = rgb2gray(a);
-imwrite(bw,'grayscale.jpg')
+imwrite(bw,'lena_grayscale.jpg')
 
 dim = size(a);
 
@@ -18,7 +19,7 @@ for x = 1:dim(1)
         neg(x,y) = 255 - a(x,y);
     end
 end
-imwrite(neg,'negative.jpg')
+imwrite(neg,'lena_negative.jpg')
 disp('Computing histogram of the grayscale image')
 tic
 % computeHist(bw);
@@ -26,11 +27,4 @@ tot_time = toc
 disp('Done.')
 
 histEq(bw);
-
-
-
-
-
-
-
        

@@ -1,3 +1,4 @@
+%computeHist.m
 %AUTHOR: SUMANTH SRINIVASAN
 
 function [h] = computeHist(img)

@@ -1,3 +1,6 @@
+%histEq.m
+%AUTHOR: SUMANTH SRINIVASAN
+
 function histEq(img)
 %Histogram Equalization
 %   Equalizes the non-uniform distribution of histogram
@@ -15,7 +18,7 @@ for k = 1:256
     C(k)=uint8(sum(h(1:k))*255);
 end;
 
-figure; subplot(2,1,1), plot(C); subplot(2,1,2), bar(h,'g');
+figure; subplot(2,1,1), plot(C); title('Mapping function'); subplot(2,1,2), bar(h,'g'); title('Histogram');
 
 
 % Mapping
@@ -32,7 +35,7 @@ tot_timeMap = toc
 
 figure;
 imshow(uint8(histEqImg));
-imwrite(uint8(histEqImg),'Hist_Equalized.jpg');
+imwrite(uint8(histEqImg),'lena_Hist_Equalized.jpg');
 
         
 end
