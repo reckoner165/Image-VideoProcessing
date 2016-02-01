@@ -13,12 +13,12 @@ h = h/(dim(1)*dim(2));
 
 % Computing Mapping Fn proportional to Cumulative Dist Fn
 
-C = zeros(256,1);
+map = zeros(256,1);
 for k = 1:256
-    C(k)=uint8(sum(h(1:k))*255);
+    map(k)=uint8(sum(h(1:k))*255);
 end;
 
-figure; subplot(2,1,1), plot(C); title('Mapping function'); subplot(2,1,2), bar(h,'g'); title('Histogram');
+figure; subplot(2,1,1), plot(map); title('Mapping function'); subplot(2,1,2), bar(h,'g'); title('Histogram');
 
 
 % Mapping
@@ -30,13 +30,12 @@ tic
 %     end;
 % end;
 
-histEqImg = C(double(img)+1);
+EqImg = map(double(img)+1);
 tot_timeMap = toc
 
 figure;
-imshow(uint8(histEqImg));
-imwrite(uint8(histEqImg),'lena_Hist_Equalized.jpg');
-
+imshow(uint8(EqImg));
+imwrite(uint8(EqImg),'lena_Hist_Equalized.jpg')
         
 end
 

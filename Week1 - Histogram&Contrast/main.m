@@ -4,10 +4,11 @@
 
 %AUTHOR: SUMANTH SRINIVASAN
 
-
 a = uint8(imread('lena_low_contrast.jpg'));
+a2 = double(a);
 disp('Creating grayscale image...');
-bw = rgb2gray(a);
+ycbcr = rgb_to_ycbcr(a2);
+bw = uint8(ycbcr(:,:,1));
 imwrite(bw,'lena_grayscale.jpg')
 
 dim = size(a);
