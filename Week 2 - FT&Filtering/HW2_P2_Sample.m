@@ -30,10 +30,10 @@ noisy_img=single(noisy_img);
 
 %set filter
 
-filterSize=3;
+filterSize=input('Enter window size (integer): ');
 denoising_filter=ones(filterSize,filterSize)/(filterSize*filterSize);
 
-tmpImg = my_conv2_sol(noisy_img, denoising_filter);  %%% here you need to write your own function as my_conv2
+tmpImg = computeConv(noisy_img, denoising_filter);  %%% here you need to write your own function as my_conv2
 
 %%
 % III) Normalize and convert the image to uint8
