@@ -1,3 +1,5 @@
+%computeConv.m
+
 function [ outImg ] = computeConv( img, filt )
 %UNTITLED Convolutes the image with the filter matrix
 %   

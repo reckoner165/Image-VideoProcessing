@@ -1,8 +1,5 @@
 %% Homework 2
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Problem 2
 % Write a Matlab to simulate noise removal.
 
@@ -16,7 +13,7 @@ inImg = imread('barbara_gray.bmp');
 %convert the inImg to int or single or double before proceeding!
 grayImg=double(inImg);
 
-noiseLevel=0.01;
+noiseLevel=0.1;
 noisy_img = imnoise(inImg, 'gaussian', 0, noiseLevel);
 %imnoise does not work when inImg is not uint8!
 noisy_img=single(noisy_img);

@@ -10,8 +10,8 @@
 inImg = imread('barbara_gray.bmp');
 grayImg=single(inImg);
 
-
-my_filter=[1 2 1; 2 4 2; 1 2 1];
+%my_filter=[1 2 1; 2 4 2; 1 2 1];
+my_filter = input('Enter the filter as a matrix: ');
 
 %perform convolution
 
@@ -33,6 +33,6 @@ imshow(inImg);
 title('Original Image');
 subplot(1,2,2);
 imshow(filteredImg);
-title('Filtered Image with Filter 1');
+title('Filtered Image with Filter 3');
 
 print(cf, 'HW2_Q1', '-dtiff');
