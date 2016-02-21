@@ -1,4 +1,9 @@
-img = double(imread('lena_gray.bmp'));
+% Problem 1
+% The script converts a given image into grayscale, detects gradient using
+% a sobel filter and thresholds pixel values based on a user specified
+% percentile.
+
+img = double(imread('spokenFen.jpg'));
 dim = size(img);
 
 Hx = 0.25*[-1 -2 -1;0 0 0;1 2 1];
@@ -13,21 +18,8 @@ mag = zeros(dim(1),dim(2));
 for x=1:dim(1)
     for y=1:dim(2)
         mag(x,y) = sqrt((fx(x,y)^2)+(fy(x,y)^2));
-%         if fx(x,y) >= 15
-%             fx(x,y) = 255;
-%         else
-%             fx(x,y) = 15;
-%         end
-%         
-%         if fy(x,y) >= 15
-%             fy(x,y) = 255;
-%         else
-%             fy(x,y) = 15;
-%         end
     end
 end
-% imshow(uint8(mag))
-imwrite(uint8(mag),'edge_lena.bmp');
 
 %  thresholding
 
@@ -37,16 +29,7 @@ total = sizeGrad(1)*sizeGrad(2);
 T = input('Enter edge threshold value: ');
 threshVal = 0;
 
-% for x = 1:sizeGrad(1)
-%     for y = sizeGrad(2)
-%         k = x*y;
-%         if ceil((k/total)*100) ==T
-%             threshVal = sortGrad(x,y);
-%         else
-%             continue
-%         end
-%     end
-% end
+
 breakFlag = 0;
 iter = 1;
 gradHist = computeHist(mag);
@@ -67,17 +50,7 @@ for x = 1:length(gradHist)
         break 
     end
 end
-% x = 1;
-% while x <= length(sortGrad) && breakFlag == 0
-%     if floor(((x/length(sortGrad))*100)) == T
-%         disp(x)
-%         threshVal = gradHist(x);
-%         breakFlag = 1;  
-%         continue;
-%     end
-%     x = x+1;
-% end
-
+% DEBUG
  disp(threshVal);
  
  out = zeros(dim(1),dim(2));
@@ -93,3 +66,4 @@ end
     end
  end
 imshow(uint8(out));
+imwrite(uint8(out),'spokenFenBW2.jpg');
