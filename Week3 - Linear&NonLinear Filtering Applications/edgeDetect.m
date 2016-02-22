@@ -3,7 +3,7 @@
 % a sobel filter and thresholds pixel values based on a user specified
 % percentile.
 
-img = double(imread('spokenFen.jpg'));
+img = double(imread('nyc.jpg'));
 dim = size(img);
 
 Hx = 0.25*[-1 -2 -1;0 0 0;1 2 1];
@@ -66,4 +66,4 @@ end
     end
  end
 imshow(uint8(out));
-imwrite(uint8(out),'spokenFenBW2.jpg');
+imwrite(uint8(out),'nycBW.jpg');
