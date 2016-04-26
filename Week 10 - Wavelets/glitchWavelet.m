@@ -8,7 +8,10 @@ img2 = imread('dali2.jpg');
 out1 = idwt2(a,3*V,3*H-A,A,'db45');
 out2 = idwt2(A,a,2*h,2*d,'db45');
 
-subplot(1,2,1), imshow(uint8(out1)); subplot(1,2,2), imshow(uint8(out2));
+out3 = idwt2(d,h,a,a,'db45');
 
-imwrite(uint8(out1),'3.jpg');
-imwrite(uint8(out2),'4.jpg');
+% subplot(1,2,1), imshow(uint8(out1)); subplot(1,2,2), imshow(uint8(out2));
+imshow(uint8(out3));
+
+% imwrite(uint8(out1),'3.jpg');
+% imwrite(uint8(out2),'4.jpg');
